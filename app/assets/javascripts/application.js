@@ -13,4 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
-//= require_tree .
+//= require ./photos/photos
+//= require ./users/users
+//= require ./cable
+//= require_tree ./channels

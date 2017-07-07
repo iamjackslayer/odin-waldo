@@ -1,0 +1,48 @@
+<% content_for(:external_files) do %>
+	<%= stylesheet_link_tag('photos/show') %>
+	<%= javascript_include_tag('photos/show') %>
+<% end %>
+<section id="main">
+	<div class="container">
+		<div class="row">
+				<br>
+			  <div id="comment" class="col-md-12 alert" role="alert">
+			  	<h1></h1>
+			  </div>
+			
+		</div>
+		<div class="row">
+		  <div id="box" class="col-md-12">
+			<img src=<%="/"+@photo.image_url%>>
+			<canvas id="canvas" width="1023px" height="442px"></canvas>
+		  </div>
+		</div>
+		
+	</div>
+
+
+
+<!-- Modal -->
+	<div id="pop" class="modal fade">
+	  <div class="modal-dialog" role="document">
+		    <div class="modal-content">
+			      	<div class="modal-header">
+				        <h4 class="modal-title">Hi, I am Waldo. You found me in What's your name?</h4>
+					</div>
+					<%= form_for :user, url:{controller: :users, action: :create}, method: :post do |f| %>
+					<%= f.hidden_field(:duration, id: "hidden-tag") %>
+				    <div class="modal-body">
+				        <div class="input-group">
+				        <%= f.text_field(:name,placeholder: "name", class: "form-control", "aria-describedby"=>"basic-addon1") %>
+						</div>
+				    </div>
+				    <div class="modal-footer">
+				    	<%= f.submit("submit",class: "btn btn-primary") %>
+				        
+				    </div>
+				    <% end %>
+			    </div>
+		  </div>
+	</div>
+	
+</section>

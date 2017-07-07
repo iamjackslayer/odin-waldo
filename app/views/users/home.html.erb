@@ -1,0 +1,49 @@
+<%= content_for(:external_files) do %>
+	
+	<%= stylesheet_link_tag('users/home') %>
+	
+<% end %>
+
+
+<section id="main">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-6 col-md-offset-3">
+				<div class="thumbnail">
+			      <img src="assets/waldo.png" alt=>
+			      <div class="caption">
+			        <h3>Hi, I am Waldo. Remember me.</h3>
+			        <p>Wally, whose name was localised for certain international editions, for example Waldo in the United States and Canadian editions. In the first two books, Wally wandered alone and was the only person to be found in every illustration. Over time, more characters were added to find in each scene.</p>
+			        <p><%= link_to("play",{controller: :photos,action: :show, id: 1}, class: "btn btn-primary", role: "button") %></p>
+			      </div>
+			    </div>
+			</div>
+		</div>
+	</div>
+
+
+
+
+</section>
+<section id="ranking">
+	
+	<h2>Players' Ranking</h2>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-6 col-md-offset-3">
+				<ul class="list-group">
+					<% @users.each_with_index do |user,index| %>
+						<% if index == 0 %>
+						    <li class="list-group-item list-group-item-success"><%="#{user.name}  #{user.duration} secs"%></li>
+						<% elsif index == @users.length-1 %>
+						    <li class="list-group-item list-group-item-danger"><%="#{user.name}  #{user.duration} secs"%></li>
+						<% else %>
+						    <li class="list-group-item"><%="#{user.name}  #{user.duration} secs"%></li> 
+						<% end %>
+					  <% end %>
+				</ul>
+				
+			</div>
+		</div>
+	</div>
+</section>
