@@ -6,5 +6,5 @@ Rails.application.routes.draw do
 
   post "/users"=> "users#create"
   
-  get "/photos/:id/show" => "photos#show"
+  get "/photos/show" => "photos#show"
 end
